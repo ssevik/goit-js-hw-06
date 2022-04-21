@@ -1,7 +1,7 @@
-const form = document.querySelector('.login-form');
+// const form = document.querySelector('.login-form');
 
 
-form.addEventListener('submit', onForm);
+// form.addEventListener('submit', onForm);
 
 // function onForm(event) {
 //   event.preventDefault();
@@ -22,26 +22,28 @@ form.addEventListener('submit', onForm);
 //   event.currentTarget.reset();
 // }
 
+const form = document.querySelector('.login-form');
+
+form.addEventListener('submit', onForm);
 
 function onForm(event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  const loginForm = event.currentTarget.elements;
-  const email = loginForm.email.value;
-  const password = loginForm.password.value;
-  const formData = {
-    email,
-    password
-  };
+    const loginForm = event.currentTarget.elements;
+    const email = loginForm.email.value;
+    const password = loginForm.password.value;
 
-   console.log(formData)
-  
-  if (email !== "" && password !== "")  {
-    event.currentTarget.reset()
-  } else {
-    alert('все поля должны быть заполнены')
-  }
+    if(form.elements.email.value === '' || form.elements.password.value === '') {
+        return alert('все поля должны быть заполнены')
+    }
 
-  
-  
-}
+    const formData = {
+        email,
+        password,
+    };
+
+    console.log(formData);
+
+    form.reset();
+
+};
